@@ -51,9 +51,7 @@ window.addEventListener("popstate", scrollToCurrentHash);
 document.addEventListener("DOMContentLoaded", scrollToCurrentHash);
 function scrollToCurrentHash(e) {
   const u = new URL(location.href);
-  const hash = u.hash.slice(1);
-  if (!hash) return;
-
+  const hash = u.hash.slice(1) || 'header';
   const elem = document.querySelector(`#${hash}`);
   elem.scrollIntoView({block: 'start'});
 }
